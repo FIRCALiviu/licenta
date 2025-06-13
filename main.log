@@ -1,10 +1,10 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2025.6.13)  13 JUN 2025 18:26
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2025.6.13)  13 JUN 2025 18:41
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/home/bird/Programing/licenta/licenta/bac/main
-(/home/bird/Programing/licenta/licenta/bac/main.tex
+**/home/bird/Programing/licenta/licenta/licenta/main
+(/home/bird/Programing/licenta/licenta/licenta/main.tex
 LaTeX2e <2022-11-01> patch level 1
 L3 programming layer <2023-02-22> (/usr/share/texlive/texmf-dist/tex/latex/base/report.cls
 Document Class: report 2022/07/02 v1.4n Standard LaTeX document class
@@ -1360,11 +1360,11 @@ Package logreq Info: Writing requests to 'main.run.xml'.
  ) 
 Here is how much of TeX's memory you used:
  27254 strings out of 478682
- 530544 string characters out of 5849006
+ 530556 string characters out of 5849006
  1853018 words of memory out of 6000000
  47045 multiletter control sequences out of 15000+600000
  514561 words of font info for 56 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 84i,11n,115p,1070b,5571s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,11n,115p,1074b,5571s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on main.pdf (8 pages).
