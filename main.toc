@@ -12,3 +12,4 @@
 \contentsline {section}{\numberline {4.1}Corectarea automata}{8}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Feedback automat}{10}{section.4.2}%
 \contentsline {chapter}{\numberline {5}Concluzii}{12}{chapter.5}%
+\contentsline {chapter}{Bibliografie}{13}{chapter*.2}%

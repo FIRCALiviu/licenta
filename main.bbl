@@ -1,0 +1,116 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global/global}
+    \entry{golchin}{inproceedings}{}{}
+      \name{author}{4}{}{%
+        {{hash=0e860fcb66e004587ba3ac252e7a273e}{%
+           family={Golchin},
+           familyi={G\bibinitperiod},
+           given={Shahriar},
+           giveni={S\bibinitperiod}}}%
+        {{hash=b7af8261d173c93c15e7340c6945ef29}{%
+           family={Garuda},
+           familyi={G\bibinitperiod},
+           given={Nikhil},
+           giveni={N\bibinitperiod}}}%
+        {{hash=b31318c59786d00aa272dc1a8e744d3f}{%
+           family={Impey},
+           familyi={I\bibinitperiod},
+           given={Christopher},
+           giveni={C\bibinitperiod}}}%
+        {{hash=9f46fc5370ac444cd40a600bc3fbaec9}{%
+           family={Wenger},
+           familyi={W\bibinitperiod},
+           given={Matthew},
+           giveni={M\bibinitperiod}}}%
+      }
+      \name{editor}{6}{}{%
+        {{hash=50e8b13f09de6a4c5cb0f209843877e4}{%
+           family={Rambow},
+           familyi={R\bibinitperiod},
+           given={Owen},
+           giveni={O\bibinitperiod}}}%
+        {{hash=55f279e017bd585b710d78e5098cdb0a}{%
+           family={Wanner},
+           familyi={W\bibinitperiod},
+           given={Leo},
+           giveni={L\bibinitperiod}}}%
+        {{hash=b0bf0fa4f634ecbebcf453cde5b02df9}{%
+           family={Apidianaki},
+           familyi={A\bibinitperiod},
+           given={Marianna},
+           giveni={M\bibinitperiod}}}%
+        {{hash=9bf3d74523ad71f3cd87991dcc3d9b00}{%
+           family={Al-Khalifa},
+           familyi={A\bibinithyphendelim K\bibinitperiod},
+           given={Hend},
+           giveni={H\bibinitperiod}}}%
+        {{hash=4f51bbb62297b137bee0f2dd16388c31}{%
+           family={Eugenio},
+           familyi={E\bibinitperiod},
+           given={Barbara\bibnamedelima Di},
+           giveni={B\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=b66c934ea85e43f75cae6e977ceaca03}{%
+           family={Schockaert},
+           familyi={S\bibinitperiod},
+           given={Steven},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Abu Dhabi, UAE}%
+      }
+      \list{publisher}{1}{%
+        {Association for Computational Linguistics}%
+      }
+      \strng{namehash}{385908e724f054c8dca4a47449e33720}
+      \strng{fullhash}{61eb4191fe0dcd90fb7e0edd7264c374}
+      \strng{fullhashraw}{61eb4191fe0dcd90fb7e0edd7264c374}
+      \strng{bibnamehash}{61eb4191fe0dcd90fb7e0edd7264c374}
+      \strng{authorbibnamehash}{61eb4191fe0dcd90fb7e0edd7264c374}
+      \strng{authornamehash}{385908e724f054c8dca4a47449e33720}
+      \strng{authorfullhash}{61eb4191fe0dcd90fb7e0edd7264c374}
+      \strng{authorfullhashraw}{61eb4191fe0dcd90fb7e0edd7264c374}
+      \strng{editorbibnamehash}{6475404b12259beb64e8893b0ff8a24c}
+      \strng{editornamehash}{5c4cb696904ac98f403b04594891ef70}
+      \strng{editorfullhash}{6475404b12259beb64e8893b0ff8a24c}
+      \strng{editorfullhashraw}{6475404b12259beb64e8893b0ff8a24c}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Massive open online courses (MOOCs) offer free education globally. Despite this democratization of learning, the massive enrollment in these courses makes it impractical for an instructor to assess every student{'}s writing assignment. As a result, peer grading, often guided by a straightforward rubric, is the method of choice. While convenient, peer grading often falls short in terms of reliability and validity. In this study, we explore the feasibility of using large language models (LLMs) to replace peer grading in MOOCs. To this end, we adapt the zero-shot chain-of-thought (ZCoT) prompting technique to automate the feedback process once the LLM assigns a score to an assignment. Specifically, to instruct LLMs for grading, we use three distinct prompts based on ZCoT: (1) ZCoT with instructor-provided correct answers, (2) ZCoT with both instructor-provided correct answers and rubrics, and (3) ZCoT with instructor-provided correct answers and LLM-generated rubrics. We tested these prompts in 18 different scenarios using two LLMs{---}GPT-4 and GPT-3.5{---}across three MOOCs: Introductory Astronomy, Astrobiology, and the History and Philosophy of Astronomy. Our results show that ZCoT, when augmented with instructor-provided correct answers and rubrics, produces grades that are more aligned with those assigned by instructors compared to peer grading. Finally, our findings indicate a promising potential for automated grading systems in MOOCs, especially in subjects with well-defined rubrics, to improve the learning experience for millions of online learners worldwide.}
+      \field{booktitle}{Proceedings of the 31st International Conference on Computational Linguistics}
+      \field{month}{1}
+      \field{title}{Grading Massive Open Online Courses Using Large Language Models}
+      \field{year}{2025}
+      \field{pages}{3899\bibrangedash 3912}
+      \range{pages}{14}
+      \verb{urlraw}
+      \verb https://aclanthology.org/2025.coling-main.263/
+      \endverb
+      \verb{url}
+      \verb https://aclanthology.org/2025.coling-main.263/
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
