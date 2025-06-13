@@ -14,7 +14,7 @@
 
 % Suport pentru diacritice și alte simboluri
 \usepackage{fontspec}
-
+\usepackage{soul}
 % Suport pentru mai multe limbi
 \usepackage{polyglossia}
 
@@ -232,7 +232,72 @@ Deepseek r1 & 4.78 & 14
 
 Putem remarca imediat ca GPT 4 este un model foarte prost in comparare cu ceilalti, deci confirma idea ca LLM-urile s-au ameliorat foarte mult in anii recenti 
 si nu mai este cazul de a folosi unul care nu este recent. Un LLM recent este mult mai performant si de multe ori mult mai ieftin de folosit.
-Un alt lucru care iese la iveala este ca numarul de parametrii este crucial: exista o diferenta significativa intre Gemini 2.5 flash si Gemini 2.5 pro
+Un alt lucru care iese la iveala este ca resursele alocate inferentei este crucial: exista o diferenta significativa intre Gemini 2.5 flash si Gemini 2.5 pro de 0.5 puncte.
+In plus de asta exista o diferenta significativa intre Deepseek v3 si Deepseek r1 de 1 punct, iarasi sustinand idea ca mai multe resurse alocate la inferente rezulta la predictii mai bune.
+Deci se pot distinge 4 factori cruciali in a determina performanta predictiilor:
+\begin{itemize}
+  \item Resursele alocate inferentei (putere de calcul \times timp)
+  \item Cat de recent este LLM-ul folosit (cu atat este mai recent, cu atat mai bine)
+\end{itemize}
+
+Putem remarca si faptul ca GPT 4.1  si Gemini 2.5 pro au avut erori foarte mici: 3.6 si 3. Acest lucru este destul de impresionant pentru ca exista o parte subiectiva
+in a interpreta baremul, si rezultatul cel mai bun (3) este cu mult sub limita superioara impusa. CMPR este totusi destul de mare pentru ambele modele.
+Doua greseli pe care am putut sa le identific este ca :
+\begin{itemize}
+  \item O data un student a facut o greseala in logica codului, si Gemini 2.5 pro a spus ca algoritmul este gresit, cand era clar doar o mica greseala de logica
+  \item O data un student nu a respectat cerinta, dar GPT 4.1 i-a acordat toate punctele, pentru ca nu si-a dat seama ca structurile \textbf{repeta ... pana cand ...} si \textbf{pana cand ... repeta ...}
+  sunt foarte diferite in contextul cerintei : trebuia ca studentul sa inlocuiasca a doua structura in pseudocod cu prima, pentru a arata ca a inteles cum se pot echivala algoritmic ambele.
+  Studentul nu a folosit structura care trebuie, dar a primit totusi toate punctele.
+\end{itemize}
+
+Ca solutie la aceste probleme, ar putea fi folosit un barem mai explicit, mai redundant, sau poate chiar si fine-tuning.
+
+
+\section{Feedback automat}
+Vrem sa ne interesam daca LLM-urile pot sa analizeze cum trebuie greselile studentilor,
+si sa propuna feedback relevant profesorului (ce parte din materie nu a fost bine inteleasa de catre studenti, si trebuie predata mai bine).
+Pentru asta, luam cele top 2 modele in performanta, si le testam.
+Aceasta parte este mult mai subiectiva decat cea precedenta, pentru ca este greu sa cuantifici calitatea unui feedback.
+Probelemele comune, identificate de mine sunt :
+\begin{itemize}
+  \item sintaxa lui C++
+  \item Algoritmica nu este inteleasa bine
+  \item Intrebarile nu sunt citite bine, si de multe ori studentii s-au aruncat in a scrie o solutie fara sa se gandeasca
+  \item I/O este implementat prost 
+  \item Prelucrarea stringurilor (char[ ]) nu este bine inteleasa
+  \item Studentii pierd foarte mult puncte la intrebarile cu raspunsuri multiple
+
+
+\end{itemize}
+
+Problemele comune, identificate de GPT 4.1 sunt:
+\begin{enumerate}
+  \item Algoritmica nu este inteleasa bine
+  \item  \st{Studentii au probleme cand lucreaza cu matrici} (acest lucru este categoric fals)
+  \item Prelucrarea stringurilor (char[ ]) nu este bine inteleasa
+  \item I/O este implementat prost
+  \item Parametrii referinta (int f(\&n)) nu sunt bine folositi
+  \item Initializarile sunt prost facute
+\end{enumerate}
+
+Deci LLM-ul a identificat niste probleme foarte importante, unele care nu au fost identificate de mine. Totusi (2) este un feedback gresit.
+Cea ce lipseste in acest feedback este ca sintaxa nu a fost bine inteleasa, si ca studentii pierd prea multe puncte la intrebarile cu raspuns multiplu.
+
+Cand vine vorba de gemini 2.5, a identificat toate problemele pe care le-am vazut, mai putin problema cu intrebarile cu raspuns multiplu.
+Nu am primit feedback gresit din partea lui gemini 2.5 .
+
+Pentru a completa partea de feedback,
+le-am cerut LLM-urilor sa genereze 10 probleme,
+pentru ca studentii sa se poata antrena cu ele. 
+Din cele 10 generate de GPT 4.1, 3 au fost irelevante, si dintre cele 10 generate de gemini, numai 1 a fost irelevanta.
+
+Putem trage concluzia ca :
+\begin{itemize}
+  \item Se pare ca o performanta mai buna in MAE si CMPR se transpune intr-o performanta mai buna cand vine vorba de feedback
+  \item Gemini 2.5 este cel mai bune model, si la corectare automata, dar si la feedback
+\end{itemize}
+
+Totusi, ambele LLM-uri au dat feedback relevant.
 \include{3-concluzii}
 
 \printbibliography[heading=bibintoc]
