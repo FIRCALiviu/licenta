@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2025.6.13)  13 JUN 2025 18:41
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2025.6.13)  13 JUN 2025 20:32
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1213,37 +1213,41 @@ Capitolul 1.
 
 
 ]) [5]
+\openout2 = `2-preliminarii.aux'.
+
+ (./2-preliminarii.tex
 Capitolul 2.
+)
+Overfull \hbox (6.49858pt too wide) in paragraph at lines 7--137
+[]\TU/lmr/m/n/12 Aliquam erat volutpat. Pellentesque vulputate massa sed semper lacinia. Duis hendrerit
+ []
+
 [6
 
 
 
+
 ]
-\openout2 = `2-preliminarii.aux'.
-
- (./2-preliminarii.tex
 Capitolul 3.
-)
-Overfull \hbox (6.49858pt too wide) in paragraph at lines 7--143
-[]\TU/lmr/m/n/12 Aliquam erat volutpat. Pellentesque vulputate massa sed semper lacinia. Duis hendrerit
- []
-
 [7
 
 
-]
+
+] [8]
+Capitolul 4.
+[9
+
+] [10]
 \openout2 = `3-concluzii.aux'.
 
  (./3-concluzii.tex
-Capitolul 4.
-) [8
-
-
+Capitolul 5.
+) [11
 
 
 ]
 
-LaTeX Warning: Empty bibliography on input line 146.
+LaTeX Warning: Empty bibliography on input line 238.
 
 The property list \polyglossia@langsetup contains the pairs (without outer
 braces):
@@ -1353,18 +1357,18 @@ LaTeX Info: Redefining \sffamily on input line 16.
 LaTeX Info: Redefining \ttfamily on input line 16.
 ) (./1-introducere.aux) (./2-preliminarii.aux) (./3-concluzii.aux))
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: A08EBEAFEF8C9FDDE2BD5B408CB34DE7;1042.
+(rerunfilecheck)             Checksum: C8DB5DCFC6A508D647172036CF48EF21;1603.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 27254 strings out of 478682
- 530556 string characters out of 5849006
- 1853018 words of memory out of 6000000
- 47045 multiletter control sequences out of 15000+600000
+ 27256 strings out of 478682
+ 530578 string characters out of 5849006
+ 1854018 words of memory out of 6000000
+ 47047 multiletter control sequences out of 15000+600000
  514561 words of font info for 56 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  84i,11n,115p,1074b,5571s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (8 pages).
+Output written on main.pdf (11 pages).
