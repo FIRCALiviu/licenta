@@ -29,5 +29,6 @@
       ]
     }
   ],
-  "latex-workshop.latex.compiler": "xelatex"
+  "latex-workshop.latex.compiler": "xelatex",
+  "latex-workshop.latex.autoBuild.run": "never",
 }
