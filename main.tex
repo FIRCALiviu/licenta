@@ -14,7 +14,7 @@
 
 % Suport pentru diacritice și alte  simboluri
 \usepackage{fontspec}
-
+\usepackage{soul}
 % Suport pentru mai multe limbi
 \usepackage{polyglossia}
 
@@ -95,8 +95,8 @@
 \usepackage{fancyhdr}
 
 % Metadate
-\title{Titlul lucrării de licență}
-\author{Numele studentului}
+\title{Corectarea automată cu ajutorul LLM-urilor : Studiu de caz - Bacalaureat Informatică}
+\author{Firca Liviu Nicolae}
 
 % Generează variabilele cu @
 \makeatletter
@@ -135,42 +135,38 @@
 
 \include{1-introducere}
 \include{2-preliminarii}
-\chapter{Colectarea si prelucrarea datelor}
+\chapter{Colectarea și prelucrarea datelor}
 \section{Colectarea datelor}
-Datele au fost generate de studenti in aplicatia teams a facultatii. Modul in care au lucrat a fost urmatorul: li s-a asignat un subiect de bac la informatica din 2020 pana in 2024
-si au trebuit sa isi aleaga un numar aleatoriu dintre 5 si 10. Dupa acea au fost instruiti sa faca greseli astfel incat nota lor sa corespunda cu numarul ales.
-Pentru a facilita corectarea lucrarilor, studentii au si trebuit sa indice greselile facute, dar si nota pe care si-au asignat-o.
-Am primit in total 42 de lucrari, dintre care au fost filtrate 9 lucrari pentru ca aveau date de proasta calitate.
-Problemele pe care le-am intalnit aici erau multiple
+Datele au fost generate de studenți în aplicația Teams a facultății. Modul în care au lucrat a fost următorul: li s-a asignat un subiect de bac la informatică din 2020 până în 2024 și au trebuit să își aleagă un număr aleatoriu dintre 5 și 10. După aceea au fost instruiți să facă greșeli astfel încât nota lor să corespundă cu numărul ales.  
+Pentru a facilita corectarea lucrărilor, studenții au și trebuit să indice greșelile făcute, dar și nota pe care și-au asignat-o.  
+Am primit în total 42 de lucrări, dintre care au fost filtrate 9 lucrări pentru că aveau date de proastă calitate.  
+Problemele pe care le-am întâlnit aici erau multiple:  
 \begin{itemize}
-  \item Niste studenti pur si simplu nu au ales subiectul care trebuie (sesiunea gresita, profilul stiintele naturii in loc de Matematica-Informatica)
-  \item Niste studenti au trimis in formatul gresit (fisier .docx a interferat cu sitaxa colului, fisiere excel in loc de .txt)
-  \item Niste studenti pur si simplu nu erau programatori puternici, si nu s-au verificat destul , deci cand a fost efectiv corectata lucrarea au
-  avut mai multe greseli decat au raportat. Acest lucru este problematic pentru ca incetineste mult corectarea lucrarilor. Totusi studentii erau din anul intai si aceste greseli au fost cel mai probabil neintentionate
-
-
-\end{itemize} 
-
-Pentru a evita aceste probleme puteam face 2 lucrui:
-\begin{itemize}
-  \item Sa creem un formular pentru submitere 
-  \item Sa mobilizam studenti cu mai multa experienta in programare
+  \item Niște studenți pur și simplu nu au ales subiectul care trebuie (sesiunea greșită, profilul Științele Naturii în loc de Matematică-Informatică)
+  \item Niște studenți au trimis în formatul greșit (fișier .docx a interferat cu sintaxa colului, fișiere Excel în loc de .txt)
+  \item Niște studenți pur și simplu nu erau programatori puternici și nu s-au verificat destul, deci când a fost efectiv corectată lucrarea au
+  avut mai multe greșeli decât au raportat. Acest lucru este problematic pentru că încetinește mult corectarea lucrărilor. Totuși, studenții erau din anul întâi și aceste greșeli au fost cel mai probabil neintenționate.
 \end{itemize}
 
+Pentru a evita aceste probleme puteam face 2 lucruri:
+\begin{itemize}
+  \item Să creăm un formular pentru submitere
+  \item Să mobilizăm studenți cu mai multă experiență în programare
+\end{itemize}
+
+
 \section{Prelucrarea datelor}
-Datele folosite au fost nu numai lucrarile studentilor, dar si subiectele si barelmele fiecarui an. Acestea au trebuit sa fie rescrise pentru a avea o structura mai adapatata pentru LLM-uri.
-In plus de acestea, au fost rescrise intr-un limbaj mai simplu si usor de inteles. Am filtrat o a doua oara lucrarile studentilor pana a avea 23 de lucrari in total. Acest lucru a fost facut din 2 motive : a limita costurile lucrarii (fiecare query costa relativ mult) si a permite 
-testarea a mai multor LLM-uri, dar si pentru a avea date de calitate. 
-Lucrarile au fost corectate de autor, cu atentie sporita la barem dar si la potentialele erori facute de elev (tot continutul lucrarilor a trebuit recorectat, pentru a garanta o nota cat mai apropiata de realitate)
+Datele folosite au fost nu numai lucrările studenților, dar și subiectele și baremele fiecărui an. Acestea au trebuit să fie rescrise pentru a avea o structură mai adaptată pentru LLM-uri.  
+În plus față de acestea, au fost rescrise într-un limbaj mai simplu și ușor de înțeles. Am filtrat a doua oară lucrările studenților până am avut 23 de lucrări în total. Acest lucru a fost făcut din două motive: a limita costurile lucrării (fiecare query costă relativ mult) și a permite testarea a mai multor LLM-uri, dar și pentru a avea date de calitate.  
+Lucrările au fost corectate de autor, cu atenție sporită la barem, dar și la potențialele erori făcute de elev (tot conținutul lucrărilor a trebuit recorectat, pentru a garanta o notă cât mai apropiată de realitate).
 
-\chapter{Corectarea automata si feedback automat}
-\section{Corectarea automata}
+\chapter{Corectarea automată și feedback automat}
+\section{Corectarea automată}
 
-Una dintre premisele lucrarii este ca daca LLM-ul are o distanta mai mica de 0.5 puncte din 10, atunci ar putea teoretic inlocui un corector uman.
-Ne intrebam in primul rand daca cea mai directa abordare (se da toata lucrarea,
-tot baremul, si tot subiectul si este instruit sa noteze lucrarea pe baza baremului) produce rezultate bune.
-Pentru acest lucru o sa folosim GPT 4.1 din 2 motive: Nu este un thinking model (vrem sa avem abordarea cat mai simpla), si este un model recent pentru studiu.
-Eroarea folosita este mean absolute error (MAE), dar se ia in calcul si cel mai prost rezultat CMPR , cand distanta intre nota reala si cea asignata a fost cea mai mare
+Una dintre premisele lucrării este că, dacă LLM-ul are o distanță mai mică de 0.5 puncte din 10, atunci ar putea teoretic înlocui un corector uman.  
+Ne întrebăm în primul rând dacă cea mai directă abordare (se dă toată lucrarea, tot baremul și tot subiectul și este instruit să noteze lucrarea pe baza baremului) produce rezultate bune.  
+Pentru acest lucru o să folosim GPT-4.1 din două motive: nu este un *thinking model* (vrem să avem abordarea cât mai simplă) și este un model recent pentru studiu.  
+Eroarea folosită este *mean absolute error* (MAE), dar se ia în calcul și cel mai prost rezultat — CMPR — când distanța între nota reală și cea asignată a fost cea mai mare.
 
 \begin{table}[h!]
 \centering
@@ -181,25 +177,27 @@ Eroarea folosita este mean absolute error (MAE), dar se ia in calcul si cel mai 
 GPT 4.1 & 4.78 & 18\\
 \hline
 \end{tabular}
-\caption{Prima abordare, punctaj acordat din 100 puncte}
+\caption{Prima abordare, punctaj acordat din 100 de puncte}
 
 \end{table}
+Cum putea vedea, modelul se încadrează tehnic în limita superioară impusă (5 puncte din 100). Totuși, este foarte aproape de această limită, și CMPR este foarte mare.
 
-Cum putea vedea modelul se incadreaza tehnic in limita superioara impusa (5 puncte din 100). Totusi, este foarte aproape de aceasta limita, si CMPR este foarte mare.
-
-In plus analizand justificarea acordata a notelor puteam observa mai multe lucruri in neregula:
+În plus, analizând justificarea acordată a notelor, puteam observa mai multe lucruri în neregulă:
 \begin{itemize}
-  \item Uneori nu corecteaza pe baza baremului, de exemplu daca vede un program scris "foarte lenes", el ii va da 0 puncte chiar daca baremul generos de la bac i-ar acorda 5 puncte 
-  \item Uneori LLM-ul a rescris codul cu intentia de al puncta (lucru care se intampla daca textul dat este foarte lung), dar a omis o parte a coduli care 
-  a judecat-o irelevanta. Dar dupa ce a trecut prin cerintele baremului, a depunctat studentul pentru ca lipseste partea a codului care nu a vrut sa o copieze.
-  Cred ca lucrul acesta are 2 cauze simultane : un LLM nu se poate "gandii" la tot textul in acelasi timp, deci nu isi da seama de eroarea comisa. In plus, planificarea in avans a fost clar proasta.
-  \item Uneori nu si-a dat seama ca raspunsul corect se afla in barem, deci a incercat sa gaseasca singur solutia, dar nu a fost correct. Deci corectarea a fost si ea gresita
+  \item Uneori nu corectează pe baza baremului. De exemplu, dacă vede un program scris „foarte leneș”, îi va da 0 puncte, chiar dacă baremul generos de la bac i-ar acorda 5 puncte.
+  \item Uneori, LLM-ul a rescris codul cu intenția de a-l puncta (lucru care se întâmplă dacă textul dat este foarte lung), dar a omis o parte a codului pe care 
+  a judecat-o irelevantă. După ce a trecut prin cerințele baremului, a depunctat studentul pentru că lipsește partea de cod pe care nu a vrut să o copieze.
+  Cred că lucrul acesta are două cauze simultane: un LLM nu se poate „gândi” la tot textul în același timp, deci nu își dă seama de eroarea comisă. În plus, planificarea în avans a fost clar proastă.
+  \item Uneori nu și-a dat seama că răspunsul corect se afla în barem, deci a încercat să găsească singur soluția, dar nu a fost corectă. Deci corectarea a fost și ea greșită.
 \end{itemize}
 
-Multe dintre neintelegerile sale au fost din cauza contextului prea mare, care l-a facut sa ignore baremul sau sa corecteze gresit. 
-Din cauza asta avem o a doua abordare: ne dam seama ca fiecare intrebare de la bac este independenta, deci se imparte fiecare lucrare in 7 "lucrari", si baremul si subiectul
-sunt si ele impartite cum trebuie. In plus de asta folosim mai multe modele, inclusiv si thinking models. Din curiozitate, am inclus si GPT 4, pentru a vedea cat de important este factorul ca modelelel sunt noi.
-Folosind aceleasi metrici:
+
+Multe dintre neînțelegerile sale au fost din cauza contextului prea mare, care l-a făcut să ignore baremul sau să corecteze greșit.  
+Din cauza asta, avem o a doua abordare: ne dăm seama că fiecare întrebare de la bac este independentă, deci se împarte fiecare lucrare în 7 „lucrări”, iar baremul și subiectul
+sunt și ele împărțite cum trebuie. După ce LLM-ul corectează tot, sunt 
+recombinate toate cele 7 diviziuni în aceeași lucrare, și numai pe baza lucrării întregi se măsoară performanța. În plus față de asta, folosim mai multe modele, inclusiv și *thinking models*. Din curiozitate, am inclus și GPT-4, pentru a vedea cât de important este factorul că modelele sunt noi.  
+Folosind aceleași metrici:
+
 
 \begin{table}[h!]
 \centering
@@ -226,77 +224,80 @@ Deepseek r1 & 4.78 & 14
 \hline
 
 \end{tabular}
-\caption{A doua abordare, punctaj acordat din 100 puncte}
+\caption{A doua abordare, punctaj acordat din 100 de puncte}
 
 \end{table}
 
-Putem remarca imediat ca GPT 4 este un model foarte prost in comparare cu ceilalti, deci confirma idea ca LLM-urile s-au ameliorat foarte mult in anii recenti 
-si nu mai este cazul de a folosi unul care nu este recent. Un LLM recent este mult mai performant si de multe ori mult mai ieftin de folosit.
-Un alt lucru care iese la iveala este ca resursele alocate inferentei este crucial: exista o diferenta significativa intre Gemini 2.5 flash si Gemini 2.5 pro de 0.5 puncte.
-In plus de asta exista o diferenta significativa intre Deepseek v3 si Deepseek r1 de 1 punct, iarasi sustinand idea ca mai multe resurse alocate la inferente rezulta la predictii mai bune.
-Deci se pot distinge 4 factori cruciali in a determina performanta predictiilor:
+Putem remarca imediat că GPT-4 este un model foarte prost în comparație cu ceilalți, deci confirmă ideea că LLM-urile s-au ameliorat foarte mult în anii recenți  
+și nu mai este cazul să folosim unul care nu este recent. Un LLM de actualitate este mult mai performant și, de multe ori, mult mai ieftin de folosit.  
+Un alt lucru care iese la iveală este că resursele alocate inferenței sunt cruciale: există o diferență semnificativă între Gemini 2.5 Flash și Gemini 2.5 Pro de 0.5 puncte.  
+În plus față de asta, există o diferență semnificativă între DeepSeek v3 și DeepSeek R1 de 1 punct, susținând iarăși ideea că mai multe resurse alocate la inferență rezultă în predicții mai bune.  
+Deci se pot distinge doi factori cruciali în a determina performanța predicțiilor:
 \begin{itemize}
-  \item Resursele alocate inferentei (putere de calcul \times timp)
-  \item Cat de recent este LLM-ul folosit (cu atat este mai recent, cu atat mai bine)
+  \item Resursele alocate inferenței
+  \item Cât de recent este LLM-ul folosit (cu cât este mai recent, cu atât mai bine)
 \end{itemize}
 
-Putem remarca si faptul ca GPT 4.1  si Gemini 2.5 pro au avut erori foarte mici: 3.6 si 3. Acest lucru este destul de impresionant pentru ca exista o parte subiectiva
-in a interpreta baremul, si rezultatul cel mai bun (3) este cu mult sub limita superioara impusa. CMPR este totusi destul de mare pentru ambele modele.
-Doua greseli pe care am putut sa le identific este ca :
+
+Putem remarca și faptul că GPT-4.1 și Gemini 2.5 Pro au avut erori foarte mici: 3.6 și 3. Acest lucru este destul de impresionant, pentru că există o parte subiectivă  
+în a interpreta baremul, iar rezultatul cel mai bun (3) este cu mult sub limita superioară impusă. CMPR este totuși destul de mare pentru ambele modele.  
+Două greșeli pe care am putut să le identific sunt următoarele:
 \begin{itemize}
-  \item O data un student a facut o greseala in logica codului, si Gemini 2.5 pro a spus ca algoritmul este gresit, cand era clar doar o mica greseala de logica
-  \item O data un student nu a respectat cerinta, dar GPT 4.1 i-a acordat toate punctele, pentru ca nu si-a dat seama ca structurile \textbf{repeta ... pana cand ...} si \textbf{pana cand ... repeta ...}
-  sunt foarte diferite in contextul cerintei : trebuia ca studentul sa inlocuiasca a doua structura in pseudocod cu prima, pentru a arata ca a inteles cum se pot echivala algoritmic ambele.
-  Studentul nu a folosit structura care trebuie, dar a primit totusi toate punctele.
+  \item O dată, un student a făcut o greșeală în logica codului, iar Gemini 2.5 Pro a spus că algoritmul este greșit, când era clar că era doar o mică greșeală de logică.
+  \item O dată, un student nu a respectat cerința, dar GPT-4.1 i-a acordat toate punctele, pentru că nu și-a dat seama că structurile \textbf{repetă ... până când ...} și \textbf{până când ... repetă ...}  
+  sunt foarte diferite în contextul cerinței: trebuia ca studentul să înlocuiască a doua structură în pseudocod cu prima, pentru a arăta că a înțeles cum se pot echivala algoritmic ambele.  
+  Studentul nu a folosit structura care trebuie, dar a primit totuși toate punctele.
 \end{itemize}
 
-Ca solutie la aceste probleme, ar putea fi folosit un barem mai explicit, mai redundant, sau poate chiar si fine-tuning.
+Ca soluție la aceste probleme, ar putea fi folosit un barem mai explicit, mai redundant, sau poate chiar și fine-tuning.
+
 
 
 \section{Feedback automat}
-Vrem sa ne interesam daca LLM-urile pot sa analizeze cum trebuie greselile studentilor,
-si sa propuna feedback relevant profesorului (ce parte din materie nu a fost bine inteleasa de catre studenti, si trebuie predata mai bine).
-Pentru asta, luam cele top 2 modele in performanta, si le testam. Datele primite ca input pentru LLM sunt corectarile obtinute a lucrarilor, fara subiect sau lucrarea propriu zisa (a trebuit sa justifice nota LLM-ul, deci exista destul context doar in corectare).
-Aceasta parte este mult mai subiectiva decat cea precedenta, pentru ca este greu sa cuantifici calitatea unui feedback.
-Probelemele comune ale lucrarilor, identificate de mine sunt :
+Vrem să ne interesăm dacă LLM-urile pot să analizeze cum trebuie greșelile studenților
+și să propună feedback relevant profesorului (ce parte din materie nu a fost bine înțeleasă de către studenți și trebuie predată mai bine).
+Pentru asta, luăm cele top 2 modele în performanță și le testăm. Datele primite ca input pentru LLM sunt corectările lucrărilor obținute, fără subiect sau lucrarea propriu-zisă (a trebuit să justifice nota LLM-ul, deci există destul context doar în corectare).
+Această parte este mult mai subiectivă decât cea precedentă, pentru că este greu să cuantifici calitatea unui feedback.
+
+Problemele comune ale lucrărilor, identificate de mine, sunt:
 \begin{itemize}
-  \item sintaxa lui C++
-  \item Algoritmica nu este inteleasa bine
-  \item Intrebarile nu sunt citite bine, si de multe ori studentii s-au aruncat in a scrie o solutie fara sa se gandeasca
-  \item I/O este implementat prost 
-  \item Prelucrarea stringurilor (char[ ]) nu este bine inteleasa
-  \item Studentii pierd foarte mult puncte la intrebarile cu raspunsuri multiple
-
-
+\item sintaxa lui C++
+\item Algoritmica nu este înțeleasă bine
+\item Întrebările nu sunt citite bine și, de multe ori, studenții s-au aruncat în a scrie o soluție fără să se gândească
+\item I/O este implementat prost
+\item Prelucrarea stringurilor (char[ ]) nu este bine înțeleasă
+\item Studenții pierd foarte multe puncte la întrebările cu răspunsuri multiple
 \end{itemize}
 
 Problemele comune, identificate de GPT 4.1 sunt:
 \begin{enumerate}
-  \item Algoritmica nu este inteleasa bine
-  \item Prelucrarea stringurilor (char[ ]) nu este bine inteleasa
-  \item I/O este implementat prost
-  \item Parametrii referinta (int f(\&n)) nu sunt bine folositi
-  \item Initializarile sunt prost facute
+\item Algoritmica nu este înțeleasă bine
+\item \st{Studenții nu lucrează bine cu matrice} (acest feedback este categoric fals)
+\item Prelucrarea stringurilor (char[ ]) nu este bine înțeleasă
+\item I/O este implementat prost
+\item Parametrii referință (int f(&n)) nu sunt bine folosiți
+\item Inițializările sunt prost făcute
 \end{enumerate}
 
-Deci LLM-ul a identificat niste probleme foarte importante, unele care nu au fost identificate de mine. Totusi (2) este un feedback gresit.
-Cea ce lipseste in acest feedback este ca sintaxa nu a fost bine inteleasa, si ca studentii pierd prea multe puncte la intrebarile cu raspuns multiplu.
+Deci LLM-ul a identificat niște probleme foarte importante, unele care nu au fost identificate de mine. Totuși (2) este un feedback greșit.
+Ceea ce lipsește în acest feedback este că sintaxa nu a fost bine înțeleasă și că studenții pierd prea multe puncte la întrebările cu răspuns multiplu.
 
-Cand vine vorba de gemini 2.5, a identificat toate problemele pe care le-am vazut, mai putin problema cu intrebarile cu raspuns multiplu.
-Nu am primit feedback gresit din partea lui gemini 2.5 .
+Când vine vorba de Gemini 2.5 Pro, a identificat toate problemele pe care le-am văzut, mai puțin faptul că studenții au pierdut prea multe puncte la întrebările cu răspuns multiplu.
+Nu am primit feedback greșit din partea lui Gemini 2.5 Pro.
 
 Pentru a completa partea de feedback,
-le-am cerut LLM-urilor sa genereze 10 probleme,
-pentru ca studentii sa se poata antrena cu ele. 
-Din cele 10 generate de GPT 4.1, 3 au fost irelevante, si dintre cele 10 generate de gemini, numai 1 a fost irelevanta.
+le-am cerut LLM-urilor să genereze 30 de probleme,
+pentru ca studenții să se poată antrena cu ele.
+Din cele 30 generate de GPT 4.1, 10 au fost irelevante, și dintre cele 30 generate de Gemini, 7 au fost irelevante.
 
-Putem trage concluzia ca :
+Putem trage concluzia că:
 \begin{itemize}
-  \item Se pare ca o performanta mai buna in MAE si CMPR se transpune intr-o performanta mai buna cand vine vorba de feedback
-  \item Gemini 2.5 este cel mai bune model, si la corectare automata, dar si la feedback
+\item Se pare că o performanță mai bună în MAE și CMPR la corectare
+se transpune într-o performanță mai bună când vine vorba de feedback
+\item Gemini 2.5 Pro este cel mai bun model, și la corectare automată, dar și la feedback
 \end{itemize}
 
-Totusi, ambele LLM-uri au dat feedback relevant.
+Totuși, ambele LLM-uri au dat feedback relevant.
 \include{3-concluzii}
 
 \printbibliography[heading=bibintoc]

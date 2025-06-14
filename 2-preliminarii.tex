@@ -1,45 +1,48 @@
 \chapter{Preliminarii}
 
-O sa explicam tehnologiile folosite dar si anumite notiuni utilizate in acest studiu.
+O să explicăm tehnologiile folosite, dar și anumite noțiuni utilizate în acest studiu.
 
-Cel mai invechit LLM folosit este GPT 4 \cite{gpt4}. Modelul a fost publicat in Martie 2023, si faptul ca este cel mai vechi va fi important ulterior.
+Cel mai învechit LLM folosit este GPT 4 \cite{gpt4}. Modelul a fost publicat în martie 2023, și faptul că este cel mai vechi va fi important ulterior.
 
-Al doilea LLM "invechit" este DeepSeek-V3, care a fost publicat in Decembrie 2024 \cite{v3}. A introdus diferite mecanisme care i-au permis sa fie mai ieftin decat 
-competitia sa, dar tot pastrand o performanta similara.
+Al doilea LLM „învechit” este DeepSeek-V3, care a fost publicat în decembrie 2024 \cite{v3}. A introdus diferite mecanisme care i-au permis să fie mai ieftin decât
+competiția sa, dar tot păstrând o performanță similară.
 
-Al treilea LLM studiat este DeepSeek-R1, care a fost publicat in Ianuarie 2025 \cite{r1} . In contrast cu GPT 4, Decembrie-V3 si GPT 4.1, acesta este un thinking model, 
-adica LLM-ul este fortat sa "gandeasca" inainte sa dea un raspuns utilizatorului. Partea de gandire consta in incercarea a mai multor abordari, dar si
-un spirit mai critic, care este mai greu de convins. Tipic vorbind LLM-ul incearca sa separe problema in mai multe etape de rezolvare in partea de gandire.
-Noutatea adusa de acest LLM este ca e mult mai ieftin decat competitia lui, dar si mai performant (decat LLM-urile de gandire care au fost publicate inaintea lui)
+Al treilea LLM studiat este DeepSeek-R1, care a fost publicat în ianuarie 2025 \cite{r1}. În contrast cu GPT 4, DeepSeek-V3 și GPT 4.1, acesta este un thinking model,
+adică LLM-ul este forțat să „gândească” înainte să dea un răspuns utilizatorului. Partea de gândire constă în încercarea a mai multor abordări, dar și
+un spirit mai critic, care este mai greu de convins. Tipic vorbind, LLM-ul încearcă să separe problema în mai multe etape de rezolvare în partea de gândire.
+Noutatea adusă de acest LLM este că e mult mai ieftin decât competiția lui, dar și mai performant (decât LLM-urile de gândire care au fost publicate înaintea lui).
 
-Gemini 2.5 este, al doilea cel mai nou LLM utilizat in acest studiu \cite{gemini} . Nu sunt foarte multe cunoscute despre el, in afara ca si el este 
-un thinking model, si ca a ridicat performanta state-of-the-art la mai multe capacitati, inclusiv matematica \cite{gemini}. Exista doua variante: cea pro si cea flash, 
-evident varianta pro este cea mai scumpa.
+Gemini 2.5 este al doilea cel mai nou LLM utilizat în acest studiu \cite{gemini}. Modelul a fost publicat în martie 2025. Nu sunt foarte multe lucruri cunoscute despre el, în afară că și el este
+un thinking model, și că a ridicat performanța state-of-the-art la mai multe capacități, inclusiv matematică \cite{gemini}. Există două variante: cea pro și cea flash,
+evident, varianta pro este cea mai scumpă.
 
-Cel mai recent LLM studiat este GPT 4.1 \cite{gpt41}. Modelul a fost publicat in Aprilie 2025, si are o performanta mult mai buna decat predecesorul sau, GPT 4o.
+Cel mai recent LLM studiat este GPT 4.1 \cite{gpt41}. Modelul a fost publicat în aprilie 2025 și are o performanță mult mai bună decât predecesorul său, GPT 4o.
 
-Acuma ca am introdus tehnologiile folosite, trebuie si sa precizam notiunile folosite
+Acum că am introdus tehnologiile folosite, trebuie și să precizăm noțiunile folosite:
 \begin{itemize}
-    \item Inferenta: in acest context, se refera la procesul prin care modelul generează un răspuns pornind de la o interogare data de la utilizator.
-    Un lucru important de notat este ca s-a observat ca mai multe resurse alocate inferentei (mai multe cuvinte generate,
-    LLM-ul este instruit sa detalieze mai mult rationamentul sau s.a.m.d. )
-    rezulta in performanta mai buna. De exemplu s-a arata ca daca instruiesti un LLM sa se gandeasca pas cu pas, si nu sa raspunda pur si simplu, performanta creste \cite{cot}.
-    \item Antrenarea : in acest context, se referla la procesul de a lua un model neinitializat, care nu stie nici macar sa vorbeasca, si sa
-    il inbunatatesti pe baza anumitor date (text de pe internet, carti, s.a.m.d.). Aceasta inbunatatire se face schimband parametrii modelului.
-    \item Fine-tuning : se refera la procesul de a lua un model deja antrenat, si de ai schimba parametrii a doua oara, pentru al face mai bun
-    pentru o anumata sarcina. Lucrul acesta ar merge bine de exemplu daca luam un LLM care a fost antrenat sa faca "orice", si il specializam sa 
-    raspunda la emailuri. Idea de fine-tuning este interesanta pentru acest studiu, pentru ca daca ai face un fine-tuning pe LLM-urile studiate, 
-    ar fi foarte probabil ca performanta sa creasca putin.
+\item Inferența: în acest context, se referă la procesul prin care modelul generează un răspuns pornind de la o interogare dată de la utilizator.
+Un lucru important de notat este că s-a observat că mai multe resurse alocate inferenței (mai multe cuvinte generate,
+răspuns mai "gândit" și detaliat)
+rezultă în performanță mai bună. De exemplu, s-a arătat că dacă instruiești un LLM să se gândească pas cu pas și nu să răspundă pur și simplu, performanța crește \cite{cot}.
 
+\item Antrenarea: în acest context, se referă la procesul de a lua un model neinițializat, care nu știe nici măcar să vorbească, și să
+îl îmbunătățești pe baza anumitor date (ar putea fi text de pe internet, cărți, și toate documentele scrise în text). Această îmbunătățire se face schimbând parametrii modelului.
+
+\item Fine-tuning: se referă la procesul de a lua un model deja antrenat și de a-i schimba parametrii a doua oară, pentru a-l face mai bun
+pentru o anumită sarcină. Lucrul acesta ar merge bine, de exemplu, dacă luăm un LLM care a fost antrenat să facă „orice” și îl specializăm să
+răspundă la emailuri. Ideea de fine-tuning este interesantă pentru acest studiu, pentru că dacă am face un fine-tuning pe LLM-urile studiate,
+ar fi foarte probabil ca performanța să crească puțin.
 \end{itemize}
 
-O premisa \textbf{foarte importanta} a acestui studiu este ca daca distanta medie intre nota adevarata si nota asignata (mean absolute error, sau MAE) de LLM este sub 5 puncte din 100, 
-atunci acuratetea este judecata ca fiind destul de buna pentru a corecta notele de bac. 
-Am luat ca metrica de performanta MAE pentru ca a fost folosita inainte pentru a masura performanta LLM-urilor la notarea lucrarilor \cite{golchin}.
-Este si mai intuitiv sa luam MAE in loc de MSE (mean squared error) in acest caz, pentru ca si erorile mici sunt importante, o diferenta 
-mica intre asteptarile studentului si nota primita ar
-putea face studentul sa depuna o contestatie. Motivul pentru care pragul pentru reusita este setat la o eroare de 5 puncte din 100 este pentru ca 
+O premisă \textbf{foarte importantă} a acestui studiu este că dacă distanța medie între nota adevărată și nota asignată (mean absolute error, sau MAE) de LLM este sub 5 puncte din 100,
+atunci acuratețea este judecată ca fiind destul de bună pentru a corecta notele de bac.
+Am luat ca metrică de performanță MAE pentru că a fost folosită înainte pentru a măsura performanța LLM-urilor la notarea lucrărilor \cite{golchin}.
+Este și mai intuitiv să luăm MAE în loc de MSE (mean squared error) în acest caz, pentru că și erorile mici sunt importante. De exemplu, o diferență
+mică între așteptările studentului și nota primită ar
+putea face studentul să depună o contestație. Motivul pentru care pragul pentru reușită este setat la o eroare de 5 puncte din 100 este pentru că:
 \begin{enumerate}
-    \item Chiar daca baremul este destul de obiectiv, exista totusi o mica parte de interpretare subiectiva
-    \item Pana in 2016, o nota trebuia sa se schimbe cu 5 puncte ca sa fie 
+\item Chiar dacă baremul este destul de obiectiv, există totuși o mică parte de interpretare subiectivă
+\item Până în 2016, o notă trebuia să se schimbe cu cel puțin 0.5 puncte din 10 ca să fie admisă contestația
 \end{enumerate}
+
+
