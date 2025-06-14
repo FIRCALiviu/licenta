@@ -19,6 +19,105 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global/global}
+    \entry{r1}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=50a7251464d94b90b8d944343cd738ce}{%
+           family={al.},
+           familyi={a\bibinitperiod},
+           given={DeepSeek-AI},
+           giveni={D\bibinithyphendelim A\bibinitperiod},
+           prefix={et},
+           prefixi={e\bibinitperiod}}}%
+      }
+      \strng{namehash}{50a7251464d94b90b8d944343cd738ce}
+      \strng{fullhash}{50a7251464d94b90b8d944343cd738ce}
+      \strng{fullhashraw}{50a7251464d94b90b8d944343cd738ce}
+      \strng{bibnamehash}{50a7251464d94b90b8d944343cd738ce}
+      \strng{authorbibnamehash}{50a7251464d94b90b8d944343cd738ce}
+      \strng{authornamehash}{50a7251464d94b90b8d944343cd738ce}
+      \strng{authorfullhash}{50a7251464d94b90b8d944343cd738ce}
+      \strng{authorfullhashraw}{50a7251464d94b90b8d944343cd738ce}
+      \field{extraname}{1}
+      \field{sortinit}{a}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:2501.12948}
+      \field{month}{1}
+      \field{title}{DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/2501.12948
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/2501.12948
+      \endverb
+    \endentry
+    \entry{v3}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=50a7251464d94b90b8d944343cd738ce}{%
+           family={al.},
+           familyi={a\bibinitperiod},
+           given={DeepSeek-AI},
+           giveni={D\bibinithyphendelim A\bibinitperiod},
+           prefix={et},
+           prefixi={e\bibinitperiod}}}%
+      }
+      \strng{namehash}{50a7251464d94b90b8d944343cd738ce}
+      \strng{fullhash}{50a7251464d94b90b8d944343cd738ce}
+      \strng{fullhashraw}{50a7251464d94b90b8d944343cd738ce}
+      \strng{bibnamehash}{50a7251464d94b90b8d944343cd738ce}
+      \strng{authorbibnamehash}{50a7251464d94b90b8d944343cd738ce}
+      \strng{authornamehash}{50a7251464d94b90b8d944343cd738ce}
+      \strng{authorfullhash}{50a7251464d94b90b8d944343cd738ce}
+      \strng{authorfullhashraw}{50a7251464d94b90b8d944343cd738ce}
+      \field{extraname}{2}
+      \field{sortinit}{a}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{arXiv preprint arXiv:2412.19437}
+      \field{month}{12}
+      \field{title}{DeepSeek-V3 Technical Report}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/2412.19437
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/2412.19437
+      \endverb
+    \endentry
+    \entry{gemini}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=daaaa5529255581e955ef8f6b6e334ea}{%
+           family={DeepMind},
+           familyi={D\bibinitperiod},
+           given={Google},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{daaaa5529255581e955ef8f6b6e334ea}
+      \strng{fullhash}{daaaa5529255581e955ef8f6b6e334ea}
+      \strng{fullhashraw}{daaaa5529255581e955ef8f6b6e334ea}
+      \strng{bibnamehash}{daaaa5529255581e955ef8f6b6e334ea}
+      \strng{authorbibnamehash}{daaaa5529255581e955ef8f6b6e334ea}
+      \strng{authornamehash}{daaaa5529255581e955ef8f6b6e334ea}
+      \strng{authorfullhash}{daaaa5529255581e955ef8f6b6e334ea}
+      \strng{authorfullhashraw}{daaaa5529255581e955ef8f6b6e334ea}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{3}
+      \field{note}{Accesat : Iunie 2025}
+      \field{title}{Gemini 2.5: Our most intelligent AI model}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025
+      \endverb
+      \verb{url}
+      \verb https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025
+      \endverb
+    \endentry
     \entry{golchin}{inproceedings}{}{}
       \name{author}{4}{}{%
         {{hash=0e860fcb66e004587ba3ac252e7a273e}{%
@@ -109,6 +208,138 @@
       \verb{url}
       \verb https://aclanthology.org/2025.coling-main.263/
       \endverb
+    \endentry
+    \entry{gpt4}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=0523b13262b12c215d8009938f5c14f1}{%
+           family={OpenAI},
+           familyi={O\bibinitperiod}}}%
+      }
+      \strng{namehash}{0523b13262b12c215d8009938f5c14f1}
+      \strng{fullhash}{0523b13262b12c215d8009938f5c14f1}
+      \strng{fullhashraw}{0523b13262b12c215d8009938f5c14f1}
+      \strng{bibnamehash}{0523b13262b12c215d8009938f5c14f1}
+      \strng{authorbibnamehash}{0523b13262b12c215d8009938f5c14f1}
+      \strng{authornamehash}{0523b13262b12c215d8009938f5c14f1}
+      \strng{authorfullhash}{0523b13262b12c215d8009938f5c14f1}
+      \strng{authorfullhashraw}{0523b13262b12c215d8009938f5c14f1}
+      \field{extraname}{1}
+      \field{sortinit}{O}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{arXiv:2303.08774}
+      \field{title}{GPT-4 Technical Report}
+      \field{year}{2023}
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/2303.08774
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/2303.08774
+      \endverb
+    \endentry
+    \entry{gpt41}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=0523b13262b12c215d8009938f5c14f1}{%
+           family={OpenAI},
+           familyi={O\bibinitperiod}}}%
+      }
+      \strng{namehash}{0523b13262b12c215d8009938f5c14f1}
+      \strng{fullhash}{0523b13262b12c215d8009938f5c14f1}
+      \strng{fullhashraw}{0523b13262b12c215d8009938f5c14f1}
+      \strng{bibnamehash}{0523b13262b12c215d8009938f5c14f1}
+      \strng{authorbibnamehash}{0523b13262b12c215d8009938f5c14f1}
+      \strng{authornamehash}{0523b13262b12c215d8009938f5c14f1}
+      \strng{authorfullhash}{0523b13262b12c215d8009938f5c14f1}
+      \strng{authorfullhashraw}{0523b13262b12c215d8009938f5c14f1}
+      \field{extraname}{2}
+      \field{sortinit}{O}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{4}
+      \field{note}{Accesat: Iunie 2025}
+      \field{title}{Introducing GPT-4.1 in the API}
+      \field{year}{2025}
+      \verb{urlraw}
+      \verb https://openai.com/index/gpt-4-1/
+      \endverb
+      \verb{url}
+      \verb https://openai.com/index/gpt-4-1/
+      \endverb
+    \endentry
+    \entry{cot}{inproceedings}{}{}
+      \name{author}{9}{}{%
+        {{hash=61331a11b490f3d927555985facd25b3}{%
+           family={Wei},
+           familyi={W\bibinitperiod},
+           given={Jason},
+           giveni={J\bibinitperiod}}}%
+        {{hash=27d22d8f05f44b47f7dcfe9b7fb85584}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Xuezhi},
+           giveni={X\bibinitperiod}}}%
+        {{hash=fc76f5fb256da4d423554f8e629b4321}{%
+           family={Schuurmans},
+           familyi={S\bibinitperiod},
+           given={Dale},
+           giveni={D\bibinitperiod}}}%
+        {{hash=3fd5b56bfa48546f2caae7b4aa56a29f}{%
+           family={Bosma},
+           familyi={B\bibinitperiod},
+           given={Maarten},
+           giveni={M\bibinitperiod}}}%
+        {{hash=a096e9107f0463212211c4510c6fa470}{%
+           family={Ichter},
+           familyi={I\bibinitperiod},
+           given={Brian},
+           giveni={B\bibinitperiod}}}%
+        {{hash=61e00ed0c44b8bddb9077a74a4ac1167}{%
+           family={Xia},
+           familyi={X\bibinitperiod},
+           given={Fei},
+           giveni={F\bibinitperiod}}}%
+        {{hash=594b2be737e055817db9ad276b6bf05a}{%
+           family={Chi},
+           familyi={C\bibinitperiod},
+           given={Ed\bibnamedelima H.},
+           giveni={E\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=c636f146591d51579a8119b777394878}{%
+           family={Le},
+           familyi={L\bibinitperiod},
+           given={Quoc\bibnamedelima V.},
+           giveni={Q\bibinitperiod\bibinitdelim V\bibinitperiod}}}%
+        {{hash=797f9a226fd7356db5edc6feba1a0e87}{%
+           family={Zhou},
+           familyi={Z\bibinitperiod},
+           given={Denny},
+           giveni={D\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New Orleans, LA, USA}%
+      }
+      \list{publisher}{1}{%
+        {Curran Associates Inc.}%
+      }
+      \strng{namehash}{7e5e566ee8f47df717196e96221e7705}
+      \strng{fullhash}{509098142e4498a67a26533cb705b76a}
+      \strng{fullhashraw}{509098142e4498a67a26533cb705b76a}
+      \strng{bibnamehash}{509098142e4498a67a26533cb705b76a}
+      \strng{authorbibnamehash}{509098142e4498a67a26533cb705b76a}
+      \strng{authornamehash}{7e5e566ee8f47df717196e96221e7705}
+      \strng{authorfullhash}{509098142e4498a67a26533cb705b76a}
+      \strng{authorfullhashraw}{509098142e4498a67a26533cb705b76a}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We explore how generating a chain of thought—a series of intermediate reasoning steps—significantly improves the ability of large language models to perform complex reasoning. In particular, we show how such reasoning abilities emerge naturally in sufficiently large language models via a simple method called chain-of-thought prompting, where a few chain of thought demonstrations are provided as exemplars in prompting.Experiments on three large language models show that chain-of-thought prompting improves performance on a range of arithmetic, commonsense, and symbolic reasoning tasks. The empirical gains can be striking. For instance, prompting a PaLM 540B with just eight chain-of-thought exemplars achieves state-of-the-art accuracy on the GSM8K benchmark of math word problems, surpassing even finetuned GPT-3 with a verifier.}
+      \field{booktitle}{Proceedings of the 36th International Conference on Neural Information Processing Systems}
+      \field{isbn}{9781713871088}
+      \field{series}{NIPS '22}
+      \field{title}{Chain-of-thought prompting elicits reasoning in large language models}
+      \field{year}{2022}
     \endentry
   \enddatalist
 \endrefsection

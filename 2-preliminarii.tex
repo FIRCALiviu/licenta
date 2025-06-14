@@ -1,7 +1,45 @@
 \chapter{Preliminarii}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dignissim metus justo, nec pharetra mauris tincidunt id. Praesent semper turpis quis faucibus pulvinar. Fusce ut justo nisi. Praesent vehicula blandit erat, sed dignissim justo bibendum lobortis. Vivamus fringilla, elit at pulvinar imperdiet, dui elit lobortis sapien, et vehicula urna ex et velit. Sed efficitur, neque sed egestas lobortis, diam leo pellentesque sem, nec gravida est nunc efficitur orci. Maecenas bibendum pharetra sapien, quis porttitor justo vestibulum a. Nunc tempus erat sed augue blandit, eu scelerisque dolor lobortis. Vestibulum quam arcu, malesuada quis felis eleifend, iaculis gravida massa. Vestibulum lacinia arcu nec risus laoreet porttitor. Quisque ut nisl consequat, sodales nisl id, pretium neque. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vivamus tincidunt, ligula in fringilla laoreet, urna risus efficitur orci, eget pellentesque metus magna interdum lorem.
+O sa explicam tehnologiile folosite dar si anumite notiuni utilizate in acest studiu.
 
-Quisque et ligula erat. Aliquam eget fringilla tortor. Nulla maximus, massa ac consectetur fringilla, ante velit porttitor justo, et euismod magna eros consequat nunc. Praesent lacinia nulla dui, lobortis mattis odio ullamcorper et. Proin vehicula massa in efficitur eleifend. Mauris ornare mi ac rutrum porta. Morbi sed magna vel sem egestas malesuada ac at turpis. Aenean eleifend pharetra massa, eget porta ligula eleifend ultricies. Donec vel imperdiet leo. Nullam commodo metus metus, sed semper velit ornare posuere.
+Cel mai invechit LLM folosit este GPT 4 \cite{gpt4}. Modelul a fost publicat in Martie 2023, si faptul ca este cel mai vechi va fi important ulterior.
 
-Aliquam erat volutpat. Pellentesque vulputate massa sed semper lacinia. Duis hendrerit dolor et blandit malesuada. Curabitur posuere tellus at lacinia scelerisque. Donec hendrerit semper ullamcorper. Morbi ut semper metus. Aliquam pharetra sagittis dolor, non pulvinar purus euismod non. Phasellus condimentum a est tristique convallis. Nam ac mauris bibendum, lobortis ex at, rhoncus nibh. Fusce neque nisi, dignissim porttitor lorem sed, lobortis vehicula felis.
+Al doilea LLM "invechit" este DeepSeek-V3, care a fost publicat in Decembrie 2024 \cite{v3}. A introdus diferite mecanisme care i-au permis sa fie mai ieftin decat 
+competitia sa, dar tot pastrand o performanta similara.
+
+Al treilea LLM studiat este DeepSeek-R1, care a fost publicat in Ianuarie 2025 \cite{r1} . In contrast cu GPT 4, Decembrie-V3 si GPT 4.1, acesta este un thinking model, 
+adica LLM-ul este fortat sa "gandeasca" inainte sa dea un raspuns utilizatorului. Partea de gandire consta in incercarea a mai multor abordari, dar si
+un spirit mai critic, care este mai greu de convins. Tipic vorbind LLM-ul incearca sa separe problema in mai multe etape de rezolvare in partea de gandire.
+Noutatea adusa de acest LLM este ca e mult mai ieftin decat competitia lui, dar si mai performant (decat LLM-urile de gandire care au fost publicate inaintea lui)
+
+Gemini 2.5 este, al doilea cel mai nou LLM utilizat in acest studiu \cite{gemini} . Nu sunt foarte multe cunoscute despre el, in afara ca si el este 
+un thinking model, si ca a ridicat performanta state-of-the-art la mai multe capacitati, inclusiv matematica \cite{gemini}. Exista doua variante: cea pro si cea flash, 
+evident varianta pro este cea mai scumpa.
+
+Cel mai recent LLM studiat este GPT 4.1 \cite{gpt41}. Modelul a fost publicat in Aprilie 2025, si are o performanta mult mai buna decat predecesorul sau, GPT 4o.
+
+Acuma ca am introdus tehnologiile folosite, trebuie si sa precizam notiunile folosite
+\begin{itemize}
+    \item Inferenta: in acest context, se refera la procesul prin care modelul generează un răspuns pornind de la o interogare data de la utilizator.
+    Un lucru important de notat este ca s-a observat ca mai multe resurse alocate inferentei (mai multe cuvinte generate,
+    LLM-ul este instruit sa detalieze mai mult rationamentul sau s.a.m.d. )
+    rezulta in performanta mai buna. De exemplu s-a arata ca daca instruiesti un LLM sa se gandeasca pas cu pas, si nu sa raspunda pur si simplu, performanta creste \cite{cot}.
+    \item Antrenarea : in acest context, se referla la procesul de a lua un model neinitializat, care nu stie nici macar sa vorbeasca, si sa
+    il inbunatatesti pe baza anumitor date (text de pe internet, carti, s.a.m.d.). Aceasta inbunatatire se face schimband parametrii modelului.
+    \item Fine-tuning : se refera la procesul de a lua un model deja antrenat, si de ai schimba parametrii a doua oara, pentru al face mai bun
+    pentru o anumata sarcina. Lucrul acesta ar merge bine de exemplu daca luam un LLM care a fost antrenat sa faca "orice", si il specializam sa 
+    raspunda la emailuri. Idea de fine-tuning este interesanta pentru acest studiu, pentru ca daca ai face un fine-tuning pe LLM-urile studiate, 
+    ar fi foarte probabil ca performanta sa creasca putin.
+
+\end{itemize}
+
+O premisa \textbf{foarte importanta} a acestui studiu este ca daca distanta medie intre nota adevarata si nota asignata (mean absolute error, sau MAE) de LLM este sub 5 puncte din 100, 
+atunci acuratetea este judecata ca fiind destul de buna pentru a corecta notele de bac. 
+Am luat ca metrica de performanta MAE pentru ca a fost folosita inainte pentru a masura performanta LLM-urilor la notarea lucrarilor \cite{golchin}.
+Este si mai intuitiv sa luam MAE in loc de MSE (mean squared error) in acest caz, pentru ca si erorile mici sunt importante, o diferenta 
+mica intre asteptarile studentului si nota primita ar
+putea face studentul sa depuna o contestatie. Motivul pentru care pragul pentru reusita este setat la o eroare de 5 puncte din 100 este pentru ca 
+\begin{enumerate}
+    \item Chiar daca baremul este destul de obiectiv, exista totusi o mica parte de interpretare subiectiva
+    \item Pana in 2016, o nota trebuia sa se schimbe cu 5 puncte ca sa fie 
+\end{enumerate}

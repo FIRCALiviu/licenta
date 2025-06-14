@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2025.6.13)  14 JUN 2025 00:45
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2025.6.13)  14 JUN 2025 17:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1214,32 +1214,32 @@ Capitolul 1.
 
 
 
-]
+] [5]
 \openout2 = `2-preliminarii.aux'.
 
  (./2-preliminarii.tex
 Capitolul 2.
-)
-Overfull \hbox (6.49858pt too wide) in paragraph at lines 7--137
-[]\TU/lmr/m/n/12 Aliquam erat volutpat. Pellentesque vulputate massa sed semper lacinia. Duis hendrerit
+
+Overfull \hbox (13.46689pt too wide) in paragraph at lines 27--29
+\TU/lmr/m/n/12 (text de pe internet, carti, s.a.m.d.). Aceasta inbunatatire se face schimband parametrii
  []
 
-[5
-
-
-
-
-]
-Capitolul 3.
 [6
 
 
 
-] [7]
-Capitolul 4.
+
+]) [7]
+Capitolul 3.
 [8
 
-] [9] [10]
+
+
+] [9]
+Capitolul 4.
+[10
+
+] [11] [12]
 Overfull \hbox (0.28474pt too wide) in paragraph at lines 288--292
 []\TU/lmr/m/n/12 Pentru a completa partea de feedback, le-am cerut LLM-urilor sa genereze 10 probleme,
  []
@@ -1249,15 +1249,24 @@ Overfull \hbox (3.00537pt too wide) in paragraph at lines 295--296
 []\TU/lmr/m/n/12 Se pare ca o performanta mai buna in MAE si CMPR se transpune intr-o performanta
  []
 
-[11]
+[13]
 \openout2 = `3-concluzii.aux'.
 
  (./3-concluzii.tex
 Capitolul 5.
-) [12
+) [14
 
 
 ]
+Overfull \hbox (7.60083pt too wide) in paragraph at lines 302--302
+\TU/lmr/m/n/12 Reinforcement Learning”, în \TU/lmr/m/it/12 arXiv preprint arXiv:2501.12948 \TU/lmr/m/n/12 (Ian. 2025), \TU/lmr/m/sc/12 url\TU/lmr/m/n/12 : [][]$[][][][][] []
+ []
+
+
+Overfull \hbox (19.84377pt too wide) in paragraph at lines 302--302
+[]\TU/lmr/m/n/12 DeepSeek-AI et al., „  DeepSeek-V3 Technical Report”, în \TU/lmr/m/it/12 arXiv preprint arXiv:2412.19437
+ []
+
 The property list \polyglossia@langsetup contains the pairs (without outer
 braces):
 >  {latex/script}  =>  {latin}
@@ -1347,7 +1356,7 @@ The property list \__xpg_alias contains the pairs (without outer braces):
 >  {newzealand/target}  =>  {english}
 >  {newzealand/variant}  =>  {newzealand}
 >  {newzealand/options}  =>  {variant=newzealand}.
- [13
+[15
 
 
 
@@ -1376,12 +1385,12 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 27497 strings out of 478682
- 535566 string characters out of 5849006
+ 27517 strings out of 478682
+ 536289 string characters out of 5849006
  1858018 words of memory out of 6000000
- 47279 multiletter control sequences out of 15000+600000
+ 47299 multiletter control sequences out of 15000+600000
  514585 words of font info for 59 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  84i,11n,115p,1736b,5571s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (13 pages).
+Output written on main.pdf (15 pages).
