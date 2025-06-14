@@ -137,14 +137,14 @@
 \include{2-preliminarii}
 \chapter{Colectarea și prelucrarea datelor}
 \section{Colectarea datelor}
-Datele au fost generate de studenți în aplicația Teams a facultății. Modul în care au lucrat a fost următorul: li s-a asignat un subiect de bac la informatică din 2020 până în 2024 și au trebuit să își aleagă un număr aleatoriu dintre 5 și 10. După aceea au fost instruiți să facă greșeli astfel încât nota lor să corespundă cu numărul ales.  
+Datele au fost generate de studenții facultății. Modul în care au lucrat a fost următorul: li s-a asignat un subiect de bacalaureat la informatică din 2020 până în 2024 și au trebuit să își aleagă un număr aleatoriu dintre 5 și 10. După aceea au fost instruiți să facă greșeli astfel încât nota lor să corespundă cu numărul ales.  
 Pentru a facilita corectarea lucrărilor, studenții au și trebuit să indice greșelile făcute, dar și nota pe care și-au asignat-o.  
 Am primit în total 42 de lucrări, dintre care au fost filtrate 9 lucrări pentru că aveau date de proastă calitate.  
 Problemele pe care le-am întâlnit aici erau multiple:  
 \begin{itemize}
   \item Niște studenți pur și simplu nu au ales subiectul care trebuie (sesiunea greșită, profilul Științele Naturii în loc de Matematică-Informatică)
   \item Niște studenți au trimis în formatul greșit (fișier .docx a interferat cu sintaxa colului, fișiere Excel în loc de .txt)
-  \item Niște studenți pur și simplu nu erau programatori puternici și nu s-au verificat destul, deci când a fost efectiv corectată lucrarea au
+  \item Niște studenți pur și simplu nu erau programatori puternici și nu s-au verificat destul, deci când a fost corectată lucrarea au
   avut mai multe greșeli decât au raportat. Acest lucru este problematic pentru că încetinește mult corectarea lucrărilor. Totuși, studenții erau din anul întâi și aceste greșeli au fost cel mai probabil neintenționate.
 \end{itemize}
 
@@ -158,15 +158,15 @@ Pentru a evita aceste probleme puteam face 2 lucruri:
 \section{Prelucrarea datelor}
 Datele folosite au fost nu numai lucrările studenților, dar și subiectele și baremele fiecărui an. Acestea au trebuit să fie rescrise pentru a avea o structură mai adaptată pentru LLM-uri.  
 În plus față de acestea, au fost rescrise într-un limbaj mai simplu și ușor de înțeles. Am filtrat a doua oară lucrările studenților până am avut 23 de lucrări în total. Acest lucru a fost făcut din două motive: a limita costurile lucrării (fiecare query costă relativ mult) și a permite testarea a mai multor LLM-uri, dar și pentru a avea date de calitate.  
-Lucrările au fost corectate de autor, cu atenție sporită la barem, dar și la potențialele erori făcute de elev (tot conținutul lucrărilor a trebuit recorectat, pentru a garanta o notă cât mai apropiată de realitate).
+Lucrările au fost recorectate, cu atenție sporită la barem, dar și la potențialele erori făcute de elev (tot conținutul lucrărilor a trebuit recorectat, pentru a garanta o notă cât mai apropiată de realitate).
 
 \chapter{Corectarea automată și feedback automat}
 \section{Corectarea automată}
 
-Una dintre premisele lucrării este că, dacă LLM-ul are o distanță mai mică de 0.5 puncte din 10, atunci ar putea teoretic înlocui un corector uman.  
+Una dintre premisele lucrării este că, dacă LLM-ul are o eroare mai mică de 0.5 puncte din 10, atunci ar putea teoretic înlocui un corector uman.  
 Ne întrebăm în primul rând dacă cea mai directă abordare (se dă toată lucrarea, tot baremul și tot subiectul și este instruit să noteze lucrarea pe baza baremului) produce rezultate bune.  
-Pentru acest lucru o să folosim GPT-4.1 din două motive: nu este un *thinking model* (vrem să avem abordarea cât mai simplă) și este un model recent pentru studiu.  
-Eroarea folosită este *mean absolute error* (MAE), dar se ia în calcul și cel mai prost rezultat — CMPR — când distanța între nota reală și cea asignată a fost cea mai mare.
+Pentru acest lucru o să folosim GPT-4.1 din două motive: nu este un thinking model (vrem să avem abordarea cât mai simplă) și este un model recent pentru studiu.  
+Eroarea folosită este mean absolute error (MAE), dar se ia în calcul și cel mai prost rezultat — CMPR — când distanța între nota reală și cea asignată a fost cea mai mare.
 
 \begin{table}[h!]
 \centering
@@ -180,7 +180,7 @@ GPT 4.1 & 4.78 & 18\\
 \caption{Prima abordare, punctaj acordat din 100 de puncte}
 
 \end{table}
-Cum putea vedea, modelul se încadrează tehnic în limita superioară impusă (5 puncte din 100). Totuși, este foarte aproape de această limită, și CMPR este foarte mare.
+Conform datelor, modelul se încadrează tehnic în limita superioară impusă (5 puncte din 100). Totuși, este foarte aproape de această limită, și CMPR este foarte mare.
 
 În plus, analizând justificarea acordată a notelor, puteam observa mai multe lucruri în neregulă:
 \begin{itemize}
@@ -195,7 +195,7 @@ Cum putea vedea, modelul se încadrează tehnic în limita superioară impusă (
 Multe dintre neînțelegerile sale au fost din cauza contextului prea mare, care l-a făcut să ignore baremul sau să corecteze greșit.  
 Din cauza asta, avem o a doua abordare: ne dăm seama că fiecare întrebare de la bac este independentă, deci se împarte fiecare lucrare în 7 „lucrări”, iar baremul și subiectul
 sunt și ele împărțite cum trebuie. După ce LLM-ul corectează tot, sunt 
-recombinate toate cele 7 diviziuni în aceeași lucrare, și numai pe baza lucrării întregi se măsoară performanța. În plus față de asta, folosim mai multe modele, inclusiv și *thinking models*. Din curiozitate, am inclus și GPT-4, pentru a vedea cât de important este factorul că modelele sunt noi.  
+recombinate toate cele 7 diviziuni în aceeași lucrare, și numai pe baza lucrării întregi se măsoară performanța. În plus folosim mai multe modele, inclusiv și thinking models. Din curiozitate, am inclus și GPT-4, pentru a vedea cât de important este factorul că modelele sunt noi.  
 Folosind aceleași metrici:
 
 
@@ -243,8 +243,8 @@ Putem remarca și faptul că GPT-4.1 și Gemini 2.5 Pro au avut erori foarte mic
 în a interpreta baremul, iar rezultatul cel mai bun (3) este cu mult sub limita superioară impusă. CMPR este totuși destul de mare pentru ambele modele.  
 Două greșeli pe care am putut să le identific sunt următoarele:
 \begin{itemize}
-  \item O dată, un student a făcut o greșeală în logica codului, iar Gemini 2.5 Pro a spus că algoritmul este greșit, când era clar că era doar o mică greșeală de logică.
-  \item O dată, un student nu a respectat cerința, dar GPT-4.1 i-a acordat toate punctele, pentru că nu și-a dat seama că structurile \textbf{repetă ... până când ...} și \textbf{până când ... repetă ...}  
+  \item Un student a făcut o greșeală în logica codului, iar Gemini 2.5 Pro a spus că algoritmul este greșit, când era clar că era doar o mică greșeală de logică.
+  \item Un student nu a respectat cerința, dar GPT-4.1 i-a acordat toate punctele, pentru că nu și-a dat seama că structurile \textbf{repetă ... până când ...} și \textbf{până când ... repetă ...}  
   sunt foarte diferite în contextul cerinței: trebuia ca studentul să înlocuiască a doua structură în pseudocod cu prima, pentru a arăta că a înțeles cum se pot echivala algoritmic ambele.  
   Studentul nu a folosit structura care trebuie, dar a primit totuși toate punctele.
 \end{itemize}
@@ -272,17 +272,17 @@ Problemele comune ale lucrărilor, identificate de mine, sunt:
 Problemele comune, identificate de GPT 4.1 sunt:
 \begin{enumerate}
 \item Algoritmica nu este înțeleasă bine
-\item \st{Studenții nu lucrează bine cu matrice} (acest feedback este categoric fals)
+\item Studenții nu lucrează bine cu matrice (acest feedback este categoric fals)
 \item Prelucrarea stringurilor (char[ ]) nu este bine înțeleasă
 \item I/O este implementat prost
-\item Parametrii referință (int f(&n)) nu sunt bine folosiți
+\item Parametrii referință (int f(\&n)) nu sunt bine folosiți
 \item Inițializările sunt prost făcute
 \end{enumerate}
 
 Deci LLM-ul a identificat niște probleme foarte importante, unele care nu au fost identificate de mine. Totuși (2) este un feedback greșit.
 Ceea ce lipsește în acest feedback este că sintaxa nu a fost bine înțeleasă și că studenții pierd prea multe puncte la întrebările cu răspuns multiplu.
 
-Când vine vorba de Gemini 2.5 Pro, a identificat toate problemele pe care le-am văzut, mai puțin faptul că studenții au pierdut prea multe puncte la întrebările cu răspuns multiplu.
+Când vine vorba de Gemini 2.5 Pro, a identificat toate problemele pe care le-am văzut (cât si GPT 4.1), mai puțin faptul că studenții au pierdut prea multe puncte la întrebările cu răspuns multiplu.
 Nu am primit feedback greșit din partea lui Gemini 2.5 Pro.
 
 Pentru a completa partea de feedback,

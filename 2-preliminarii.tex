@@ -34,7 +34,7 @@ răspundă la emailuri. Ideea de fine-tuning este interesantă pentru acest stud
 ar fi foarte probabil ca performanța să crească puțin.
 \end{itemize}
 
-O premisă \textbf{foarte importantă} a acestui studiu este că dacă distanța medie între nota adevărată și nota asignată (mean absolute error, sau MAE) de LLM este sub 5 puncte din 100,
+O premisă \textbf{importantă} a acestui studiu este că dacă distanța medie între nota adevărată și nota asignată (mean absolute error, sau MAE) de LLM este sub 5 puncte din 100,
 atunci acuratețea este judecată ca fiind destul de bună pentru a corecta notele de bac.
 Am luat ca metrică de performanță MAE pentru că a fost folosită înainte pentru a măsura performanța LLM-urilor la notarea lucrărilor \cite{golchin}.
 Este și mai intuitiv să luăm MAE în loc de MSE (mean squared error) în acest caz, pentru că și erorile mici sunt importante. De exemplu, o diferență
@@ -42,7 +42,7 @@ mică între așteptările studentului și nota primită ar
 putea face studentul să depună o contestație. Motivul pentru care pragul pentru reușită este setat la o eroare de 5 puncte din 100 este pentru că:
 \begin{enumerate}
 \item Chiar dacă baremul este destul de obiectiv, există totuși o mică parte de interpretare subiectivă
-\item Până în 2016, o notă trebuia să se schimbe cu cel puțin 0.5 puncte din 10 ca să fie admisă contestația
+\item Până în 2021, o notă trebuia să se schimbe cu cel puțin 0.5 puncte din 10 ca să fie admisă contestația
 \end{enumerate}
 
 
