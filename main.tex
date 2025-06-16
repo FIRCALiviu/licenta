@@ -14,7 +14,8 @@
 
 % Suport pentru diacritice și alte  simboluri
 \usepackage{fontspec}
-\usepackage{soul}
+
+\usepackage{float}
 % Suport pentru mai multe limbi
 \usepackage{polyglossia}
 
@@ -137,13 +138,13 @@
 \include{2-preliminarii}
 \chapter{Colectarea și prelucrarea datelor}
 \section{Colectarea datelor}
-Datele au fost generate de studenții facultății. Modul în care au lucrat a fost următorul: li s-a asignat un subiect de bacalaureat la informatică din 2020 până în 2024 și au trebuit să își aleagă un număr aleatoriu dintre 5 și 10. După aceea au fost instruiți să facă greșeli astfel încât nota lor să corespundă cu numărul ales.  
+Datele au fost generate de studenții facultății. Modul în care au lucrat a fost următorul: li s-a asignat un subiect de bacalaureat la informatică din 2020 până în 2022 și au trebuit să își aleagă un număr aleatoriu dintre 5 și 10. După aceea au fost instruiți să facă greșeli astfel încât nota lor să corespundă cu numărul ales.  
 Pentru a facilita corectarea lucrărilor, studenții au și trebuit să indice greșelile făcute, dar și nota pe care și-au asignat-o.  
 Am primit în total 42 de lucrări, dintre care au fost filtrate 9 lucrări pentru că aveau date de proastă calitate.  
 Problemele pe care le-am întâlnit aici erau multiple:  
 \begin{itemize}
   \item Niște studenți pur și simplu nu au ales subiectul care trebuie (sesiunea greșită, profilul Științele Naturii în loc de Matematică-Informatică)
-  \item Niște studenți au trimis în formatul greșit (fișier .docx a interferat cu sintaxa colului, fișiere Excel în loc de .txt)
+  \item Niște studenți au trimis în formatul greșit (fișier .docx a interferat cu sintaxa codului, fișiere Excel în loc de .txt)
   \item Niște studenți pur și simplu nu erau programatori puternici și nu s-au verificat destul, deci când a fost corectată lucrarea au
   avut mai multe greșeli decât au raportat. Acest lucru este problematic pentru că încetinește mult corectarea lucrărilor. Totuși, studenții erau din anul întâi și aceste greșeli au fost cel mai probabil neintenționate.
 \end{itemize}
@@ -251,9 +252,103 @@ Două greșeli pe care am putut să le identific sunt următoarele:
 
 Ca soluție la aceste probleme, ar putea fi folosit un barem mai explicit, mai redundant, sau poate chiar și fine-tuning.
 
+O să analizăm mai departe dacă LLM-urile sunt pesimiste sau optimiste, adică dacă notele lor tind să fie mai mari decât trebuie sau mai mici decât trebuie.
+Următoarea tabelă compară dacă notele au fost strict inferioare sau strict superioare:
 
+\begin{table}[h!]
+\centering
+\begin{tabular}{|l|c|c|}
+\hline
+\textbf{Model} & \textbf{Note mai mici} & \textbf{Note mai mari} \\
+\hline
+GPT 4.1 & 14 & 9 \\
+GPT 4 & 20 & 3 \\
+Deepseek-V3 & 11 & 12 \\
+Deepseek-R1 & 17 & 3 \\
+Gemini 2.5 pro & 12 & 9 \\
+Gemini 2.5 flash & 14 & 5 \\
+\hline
+\end{tabular}
+\caption{Compararea notelor asignate de LLM-uri cu cele umane}
+\end{table}
+
+Putem trage concluzia că LLM-urile au într-adevăr un bias să fie pesimiste. Ca rectificare la această problemă, ar exista două soluții:
+\begin{itemize}
+\item Putem adăuga un punctaj mic fiecărei lucrări
+\item Putem instrui explicit LLM-ul să fie puțin mai iertător la corectare
+\end{itemize}
+
+
+
+
+
+
+După aceea, analizăm dacă a fost un subiect anume (2020, 2021, 2022) care a fost mai dificil pentru LLM-uri.
+Pentru acest lucru, vom relua examinarea performanței fiecărui LLM, pentru fiecare an.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+\textbf{Model}         & \textbf{Note mai mici} & \textbf{Note mai mari} & \textbf{MAE} & \textbf{CMPR} \\
+\hline
+GPT 4.1                & 3               & 3                & 4.67         & 12    \\
+GPT 4                  & 5               & 1                & 11.75        & 16    \\
+Deepseek-v3            & 3               & 3                & 6            & 14    \\
+Deepseek-r1            & 3               & 2                & 4.17         & 8     \\
+Gemini 2.5 pro         & 3               & 1                & 2            & 4     \\
+Gemini 2.5 flash       & 4               & 2                & 5.25         & 9     \\
+\hline
+\end{tabular}
+\caption{Testarea performanței, Subiect din anul 2020}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+\textbf{Model}           & \textbf{Note mai mici} & \textbf{Note mai mari} & \textbf{MAE} & \textbf{CMPR} \\
+\hline
+GPT 4.1                  & 4                  & 4                  & 3.44         & 7.5           \\
+GPT 4                    & 6                  & 2                  & 7.5          & 12            \\
+Deepseek-v3              & 2                  & 6                  & 6.69         & 26            \\
+Deepseek-r1              & 7                  & 0                  & 3.5          & 10            \\
+Gemini 2.5 pro           & 1                  & 7                  & 3            & 5             \\
+Gemini 2.5 flash         & 2                  & 2                  & 0.88         & 3             \\
+\hline
+\end{tabular}
+\caption{Testarea performanței, Subiect din anul 2021}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+\textbf{Model} & \textbf{Note mai mici} & \textbf{Note mai mari} & \textbf{MAE} & \textbf{CMPR} \\
+\hline
+GPT 4.1            & 7 & 2 & 3.11  & 7     \\
+GPT 4              & 9 & 0 & 13.78 & 25.5  \\
+Deepseek-v3        & 6 & 3 & 4.89  & 12    \\
+Deepseek-r1        & 7 & 1 & 6.33  & 14    \\
+Gemini 2.5 pro     & 8 & 1 & 3.89  & 11    \\
+Gemini 2.5 flash   & 8 & 1 & 5.11  & 11    \\
+\hline
+\end{tabular}
+\caption{Testarea performanței, Subiect din anul 2022}
+\end{table}
+
+
+
+Putem trage anumite concluzii pe baza acestor date:
+\begin{itemize}
+\item Gemini 2.5 flash este mai puțin consistent decât Gemini 2.5 pro (are un MAE de 0,88 în 2021, dar de 5,11 în 2022),
+indicând iarăși importanța resurselor alocate inferenței.
+\item Rezultatele au fost foarte uniforme de la an la an și, în general, nu se pare că LLM-urile au avut o dificultate mai mare cu un anumit subiect.
+\end{itemize}
 
 \section{Feedback automat}
+\begingroup
+\fontsize{13pt}{13pt}\selectfont
 Vrem să ne interesăm dacă LLM-urile pot să analizeze cum trebuie greșelile studenților
 și să propună feedback relevant profesorului (ce parte din materie nu a fost bine înțeleasă de către studenți și trebuie predată mai bine).
 Pentru asta, luăm cele top 2 modele în performanță și le testăm. Datele primite ca input pentru LLM sunt corectările lucrărilor obținute, fără subiect sau lucrarea propriu-zisă (a trebuit să justifice nota LLM-ul, deci există destul context doar în corectare).
@@ -279,7 +374,7 @@ Problemele comune, identificate de GPT 4.1 sunt:
 \item Inițializările sunt prost făcute
 \end{enumerate}
 
-Deci LLM-ul a identificat niște probleme foarte importante, unele care nu au fost identificate de mine. Totuși (2) este un feedback greșit.
+Deci LLM-ul a identificat niște probleme foarte importante, dintre care unele care nu au fost identificate de mine. Totuși (2) este un feedback greșit.
 Ceea ce lipsește în acest feedback este că sintaxa nu a fost bine înțeleasă și că studenții pierd prea multe puncte la întrebările cu răspuns multiplu.
 
 Când vine vorba de Gemini 2.5 Pro, a identificat toate problemele pe care le-am văzut (cât si GPT 4.1), mai puțin faptul că studenții au pierdut prea multe puncte la întrebările cu răspuns multiplu.
@@ -288,7 +383,20 @@ Nu am primit feedback greșit din partea lui Gemini 2.5 Pro.
 Pentru a completa partea de feedback,
 le-am cerut LLM-urilor să genereze 30 de probleme,
 pentru ca studenții să se poată antrena cu ele.
-Din cele 30 generate de GPT 4.1, 10 au fost irelevante, și dintre cele 30 generate de Gemini, 7 au fost irelevante.
+Rezultatul a fost uramorul:
+\begin{table}[h!]
+\centering
+\begin{tabular}{|l|c|c|c|}
+\hline
+\textbf{Model}& \textbf{Probleme irelevante} & \textbf{Probleme relevante} \\
+\hline
+GPT-4.1  & 10 & 20 \\
+Gemini 2.5 Pro & 7 & 23 \\
+\hline
+\end{tabular}
+\caption{Calitatea exercițiilor generate de LLM-uri: 30 exerciții}
+\label{tab:exercitii_llm}
+\end{table}
 
 Putem trage concluzia că:
 \begin{itemize}
@@ -298,6 +406,8 @@ se transpune într-o performanță mai bună când vine vorba de feedback
 \end{itemize}
 
 Totuși, ambele LLM-uri au dat feedback relevant.
+
+\endgroup
 \include{3-concluzii}
 
 \printbibliography[heading=bibintoc]

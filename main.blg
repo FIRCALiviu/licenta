@@ -1,18 +1,18 @@
 [0] Config.pm:308> INFO - This is Biber 2.20
 [0] Config.pm:311> INFO - Logfile is 'main.blg'
-[62] biber:340> INFO - === Sun Jun 15, 2025, 00:21:04
-[75] Biber.pm:420> INFO - Reading 'main.bcf'
-[133] Biber.pm:994> INFO - Found 7 citekeys in bib section 0
-[143] Biber.pm:4463> INFO - Processing section 0
-[151] Biber.pm:4654> INFO - Looking for bibtex file 'bibliography.bib' for section 0
-[152] bibtex.pm:1713> INFO - LaTeX decoding ...
-[160] bibtex.pm:1519> INFO - Found BibTeX data source 'bibliography.bib'
-[250] UCollate.pm:68> INFO - Overriding locale 'ro-RO' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[250] UCollate.pm:68> INFO - Overriding locale 'ro-RO' defaults 'variable = shifted' with 'variable = non-ignorable'
-[250] Biber.pm:4283> INFO - Sorting list 'nty/global//global/global/global' of type 'entry' with template 'nty' and locale 'ro-RO'
-[261] bbl.pm:676> INFO - Writing 'main.bbl' with encoding 'UTF-8'
-[266] bbl.pm:779> INFO - Output to main.bbl
-[266] Biber.pm:131> WARN - legacy month field 'December' in entry 'v3' is not an integer - this will probably not sort properly.
-[266] Biber.pm:131> WARN - legacy month field 'January' in entry 'r1' is not an integer - this will probably not sort properly.
-[266] Biber.pm:131> WARN - legacy month field 'April' in entry 'gpt41' is not an integer - this will probably not sort properly.
-[266] Biber.pm:133> INFO - WARNINGS: 3
+[60] biber:340> INFO - === Sun Jun 15, 2025, 19:42:37
+[72] Biber.pm:420> INFO - Reading 'main.bcf'
+[125] Biber.pm:994> INFO - Found 7 citekeys in bib section 0
+[135] Biber.pm:4463> INFO - Processing section 0
+[144] Biber.pm:4654> INFO - Looking for bibtex file 'bibliography.bib' for section 0
+[145] bibtex.pm:1713> INFO - LaTeX decoding ...
+[152] bibtex.pm:1519> INFO - Found BibTeX data source 'bibliography.bib'
+[239] UCollate.pm:68> INFO - Overriding locale 'ro-RO' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[239] UCollate.pm:68> INFO - Overriding locale 'ro-RO' defaults 'variable = shifted' with 'variable = non-ignorable'
+[239] Biber.pm:4283> INFO - Sorting list 'nty/global//global/global/global' of type 'entry' with template 'nty' and locale 'ro-RO'
+[248] bbl.pm:676> INFO - Writing 'main.bbl' with encoding 'UTF-8'
+[251] bbl.pm:779> INFO - Output to main.bbl
+[251] Biber.pm:131> WARN - legacy month field 'December' in entry 'v3' is not an integer - this will probably not sort properly.
+[252] Biber.pm:131> WARN - legacy month field 'January' in entry 'r1' is not an integer - this will probably not sort properly.
+[252] Biber.pm:131> WARN - legacy month field 'April' in entry 'gpt41' is not an integer - this will probably not sort properly.
+[252] Biber.pm:133> INFO - WARNINGS: 3
